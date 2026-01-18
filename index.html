@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>להישאר רלבנטיות בעולם העבודה החדש – דף עבודה</title>
+
+  <style>
+    :root{
+      --plum:#651341;
+      --teal-dark:#16697A;
+      --teal:#489FB5;
+      --teal-light:#82C0CC;
+      --offwhite:#EDE7E3;
+      --orange:#FFA62B;
+
+      --paper:#ffffff;
+      --text: var(--teal-dark);
+      --line: rgba(22, 105, 122, 0.22);
+      --soft: rgba(237, 231, 227, 0.55);
+    }
+
+    *{ box-sizing:border-box; }
+
+    body{
+      margin:0;
+      background: linear-gradient(180deg, #fff 0%, var(--offwhite) 100%);
+      font-family: "Heebo","Assistant","Rubik",Calibri,Arial,sans-serif;
+      color: var(--text);
+    }
+
+    /* תצוגת מסך */
+    .page{
+      max-width: 900px;
+      margin: 24px auto;
+      padding: 0 16px;
+    }
+
+    /* התאמה ל-A4 בהדפסה */
+    @page { size: A4; margin: 12mm; }
+
+    @media print{
+      body{ background:#fff; }
+      .page{ margin:0; padding:0; max-width:none; }
+      .sheet{ border-radius:0; box-shadow:none; }
+    }
+
+    .sheet{
+      background: var(--paper);
+      border: 3px solid var(--plum);
+      border-radius: 18px;
+      overflow: hidden;
+      /* כדי להוריד את החתימה לתחתית הדף: */
+      display: flex;
+      flex-direction: column;
+    }
+
+    .banner{
+      background: linear-gradient(90deg, var(--plum), var(--teal-dark));
+      color:#fff;
+      padding: 24px 24px;
+      text-align: center;
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: 0.2px;
+      flex: 0 0 auto;
+    }
+
+    .content{
+      padding: 28px 26px 18px;
+      flex: 1 1 auto;
+    }
+
+    .section{ margin-top: 28px; }
+
+    .section-title{
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--plum);
+      margin-bottom: 14px;
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .adizes{
+      display: grid;
+      grid-template-columns: repeat(4, 56px);
+      gap: 12px;
+      margin-top: 10px;
+      justify-content: start;
+    }
+
+    .adizes-box{
+      width: 56px;
+      height: 56px;
+      border: 2px solid var(--teal-dark);
+      border-radius: 12px;
+      font-size: 28px;
+      font-weight: 800;
+      text-transform: uppercase;
+      text-align: center;
+      outline: none;
+      background: #fff;
+      color: var(--teal-dark);
+    }
+
+    .adizes-box:focus{
+      border-color: var(--orange);
+      box-shadow: 0 0 0 3px rgba(255, 166, 43, 0.22);
+    }
+
+    .line-input{
+      width: 100%;
+      border: none;
+      border-bottom: 2px solid var(--line);
+      padding: 12px 6px 9px;
+      font-size: 16px;
+      outline: none;
+      background: transparent;
+      margin-bottom: 10px;
+      color: var(--teal-dark);
+    }
+
+    .line-input:focus{ border-bottom-color: var(--orange); }
+
+    .numbered{
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .row{
+      display: grid;
+      grid-template-columns: 38px 1fr;
+      gap: 10px;
+      align-items: end;
+    }
+
+    .num{
+      font-weight: 800;
+      font-size: 16px;
+      color: var(--teal-dark);
+    }
+
+    .insights{
+      border: 2px solid var(--line);
+      border-radius: 14px;
+      padding: 14px;
+      background: linear-gradient(180deg, #fff 0%, var(--soft) 100%);
+    }
+
+    /* שאלה אחרונה – שורות באותו מרווח כמו בכל הדף */
+    .final-lines{
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .final-lines .line-input{
+      margin-bottom: 0; /* כדי שה-gap ינהל את המרווח בצורה אחידה */
+    }
+
+    /* Footer יושב בתחתית */
+    .footer{
+      flex: 0 0 auto;
+      padding: 10px 12px 14px;
+      text-align: center;
+      border-top: 1px solid rgba(22, 105, 122, 0.18);
+    }
+
+    .footer .name{
+      font-weight: 900;
+      font-size: 15px;
+      color: var(--plum);
+    }
+
+    .footer .desc{
+      margin-top: 4px;
+      font-weight: 600;
+      color: var(--teal-dark);
+      white-space: nowrap;
+      font-size: clamp(11px, 1.6vw, 13.5px);
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <div class="sheet">
+
+      <div class="banner">
+        להישאר רלבנטיות בעולם העבודה החדש
+      </div>
+
+      <div class="content">
+
+        <div class="section">
+          <div class="section-title">הפרופיל שלי לפי אדיג׳ס</div>
+          <div class="adizes" aria-label="פרופיל אדיג'ס – 4 ריבועים">
+            <input class="adizes-box" maxlength="1" aria-label="תיבה 1" />
+            <input class="adizes-box" maxlength="1" aria-label="תיבה 2" />
+            <input class="adizes-box" maxlength="1" aria-label="תיבה 3" />
+            <input class="adizes-box" maxlength="1" aria-label="תיבה 4" />
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">הכישורים שלי - נקודות חוזק</div>
+          <div class="numbered">
+            <div class="row"><div class="num">1.</div><input class="line-input"></div>
+            <div class="row"><div class="num">2.</div><input class="line-input"></div>
+            <div class="row"><div class="num">3.</div><input class="line-input"></div>
+            <div class="row"><div class="num">4.</div><input class="line-input"></div>
+            <div class="row"><div class="num">5.</div><input class="line-input"></div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">כישורים לפיתוח</div>
+          <div class="numbered">
+            <div class="row"><div class="num">1.</div><input class="line-input"></div>
+            <div class="row"><div class="num">2.</div><input class="line-input"></div>
+            <div class="row"><div class="num">3.</div><input class="line-input"></div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">תובנות מרכזיות</div>
+          <div class="insights">
+            <input class="line-input">
+            <input class="line-input">
+            <input class="line-input">
+            <input class="line-input">
+            <input class="line-input">
+            <input class="line-input">
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">בחודש הקרוב אשקיע בלמידה של</div>
+
+          <!-- כאן תיקון המרווחים -->
+          <div class="final-lines">
+            <input class="line-input">
+            <input class="line-input">
+          </div>
+        </div>
+
+      </div>
+
+      <!-- כאן הורדתי את החתימה לתחתית הדף -->
+      <div class="footer">
+        <div class="name">סימה ביטון קצביץ</div>
+        <div class="desc">פיתוח כישורים בעולם חדש</div>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>
